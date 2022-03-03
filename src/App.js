@@ -6,6 +6,7 @@ import Api from "./services/api";
 import Header from "./components/Header";
 import FeaturedMovie from "./components/FeaturedMovie";
 import MovieRow from "./components/MovieRow";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [movieList, setMovieList] = useState([]);
@@ -60,7 +61,7 @@ const App = () => {
         ))}
       </section>
 
-      {/* Footer */}
+      <Footer />
     </div>
   );
 };
