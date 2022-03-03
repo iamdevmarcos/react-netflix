@@ -1,5 +1,15 @@
 import React, { useState } from "react";
-import "./style.css";
+
+import {
+  Container,
+  Title,
+  LeftArrow,
+  RightArrow,
+  ListArea,
+  List,
+  Item,
+  Image,
+} from "./styles";
 
 import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
@@ -12,6 +22,7 @@ const MovieRow = ({ title, items }) => {
     if (x > 0) {
       x = 0;
     }
+
     setScrollX(x);
   };
 
@@ -26,34 +37,33 @@ const MovieRow = ({ title, items }) => {
   };
 
   return (
-    <div className="movieRow">
-      <h2>{title}</h2>
+    <Container>
+      <Title>{title}</Title>
 
-      <div className="movieRow--left" onClick={handleLeftArrow}>
+      <LeftArrow onClick={handleLeftArrow} id="arrow">
         <NavigateBeforeIcon style={{ fontSize: 50 }} />
-      </div>
+      </LeftArrow>
 
-      <div className="movieRow--right" onClick={handleRightArrow}>
+      <RightArrow onClick={handleRightArrow} id="arrow">
         <NavigateNextIcon style={{ fontSize: 50 }} />
-      </div>
+      </RightArrow>
 
-      <div className="movieRow--listarea">
-        <div
-          className="movieRow--list"
+      <ListArea>
+        <List
           style={{ marginLeft: scrollX, width: items.results.length * 150 }}
         >
           {items.results.length > 0 &&
             items.results.map((item, index) => (
-              <div className="movieRow--item" key={index}>
-                <img
+              <Item key={index}>
+                <Image
                   src={`https://image.tmdb.org/t/p/w300${item.poster_path}`}
                   alt={item.original_title}
                 />
-              </div>
+              </Item>
             ))}
-        </div>
-      </div>
-    </div>
+        </List>
+      </ListArea>
+    </Container>
   );
 };
 
