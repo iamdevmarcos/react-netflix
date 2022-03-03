@@ -4,6 +4,7 @@ import { Page, Lists } from "./App.styles";
 
 import Api from "./services/api";
 
+import Loading from "./components/Loading";
 import Header from "./components/Header";
 import FeaturedMovie from "./components/FeaturedMovie";
 import MovieRow from "./components/MovieRow";
@@ -49,13 +50,10 @@ const App = () => {
 
   return (
     <Page>
-      {/* Header */}
       <Header black={blackHeader} />
 
-      {/* Destaque */}
       {featuredData && <FeaturedMovie item={featuredData} />}
 
-      {/* Listas */}
       <Lists>
         {movieList.map((item, index) => (
           <MovieRow key={index} title={item.title} items={item.items} />
@@ -64,14 +62,7 @@ const App = () => {
 
       <Footer />
 
-      {movieList.length <= 0 && (
-        <div className="loading">
-          <img
-            src="https://webinars.motivatingthemasses.com/fromgood2unforgettable/images/poster-loading.gif"
-            alt="Carregando..."
-          />
-        </div>
-      )}
+      {movieList.length <= 0 && <Loading />}
     </Page>
   );
 };
