@@ -1,19 +1,30 @@
 import React from "react";
-import "./style.css";
+
+import { Container } from "./styles";
 
 const Footer = () => {
   return (
-    <footer>
-      Direitos de imagem para Netflix
+    <Container>
+      Direitos de imagem para{" "}
+      <a
+        href="https://www.netflix.com/br/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Netflix
+      </a>
       <br />
-      Dados pegos do site Themoviedb.org
+      Dados da API do TMDB.
       <br />
       Feito com{" "}
       <span role="img" aria-label="heart">
         🤍
       </span>{" "}
-      por Marcos Andre
-    </footer>
+      por{" "}
+      <a href="https://marcosdev.me/" target="_blank" rel="noopener noreferrer">
+        Marcos Andre
+      </a>
+    </Container>
   );
 };
 
