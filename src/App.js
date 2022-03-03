@@ -1,13 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 
 import Api from "./services/api";
 
 const App = () => {
+  const [movieList, setMovieList] = useState([]);
+
   useEffect(() => {
     const loadAll = async () => {
       const list = await Api.getHomeList();
-      console.log(list);
+      setMovieList(list);
     };
 
     loadAll();
