@@ -62,6 +62,15 @@ const App = () => {
       </section>
 
       <Footer />
+
+      {movieList.length <= 0 && (
+        <div className="loading">
+          <img
+            src="https://webinars.motivatingthemasses.com/fromgood2unforgettable/images/poster-loading.gif"
+            alt="Carregando..."
+          />
+        </div>
+      )}
     </div>
   );
 };
