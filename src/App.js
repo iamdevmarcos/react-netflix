@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
+
+import { Page, Lists } from "./App.styles";
 
 import Api from "./services/api";
 
@@ -47,7 +48,7 @@ const App = () => {
   }, []);
 
   return (
-    <div className="page">
+    <Page>
       {/* Header */}
       <Header black={blackHeader} />
 
@@ -55,11 +56,11 @@ const App = () => {
       {featuredData && <FeaturedMovie item={featuredData} />}
 
       {/* Listas */}
-      <section className="lists">
+      <Lists>
         {movieList.map((item, index) => (
           <MovieRow key={index} title={item.title} items={item.items} />
         ))}
-      </section>
+      </Lists>
 
       <Footer />
 
@@ -71,7 +72,7 @@ const App = () => {
           />
         </div>
       )}
-    </div>
+    </Page>
   );
 };
 

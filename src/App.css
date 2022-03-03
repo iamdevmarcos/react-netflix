@@ -1,18 +1,3 @@
-/* * {
-  box-sizing: border-box;
-}
-
-body {
-  background: #111;
-  color: #fff;
-  margin: 0;
-  font-family: "Poppins", sans-serif;
-} */
-
-.lists {
-  margin-top: -150px;
-}
-
 .loading {
   position: fixed;
   left: 0;
