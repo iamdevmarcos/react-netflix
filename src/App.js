@@ -3,12 +3,15 @@ import "./App.css";
 
 import Api from "./services/api";
 
+import MovieRow from "./components/MovieRow";
+
 const App = () => {
   const [movieList, setMovieList] = useState([]);
 
   useEffect(() => {
     const loadAll = async () => {
       const list = await Api.getHomeList();
+      console.log(list);
       setMovieList(list);
     };
 
@@ -16,8 +19,19 @@ const App = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Hello World!</h1>
+    <div className="page">
+      {/* Header */}
+
+      {/* Destaque */}
+
+      {/* Listas */}
+      <section className="lists">
+        {movieList.map((item, index) => (
+          <MovieRow key={index} title={item.title} items={item.items} />
+        ))}
+      </section>
+
+      {/* Footer */}
     </div>
   );
 };
