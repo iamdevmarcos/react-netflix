@@ -3,8 +3,9 @@ import "./App.css";
 
 import Api from "./services/api";
 
-import MovieRow from "./components/MovieRow";
+import Header from "./components/Header";
 import FeaturedMovie from "./components/FeaturedMovie";
+import MovieRow from "./components/MovieRow";
 
 const App = () => {
   const [movieList, setMovieList] = useState([]);
@@ -30,6 +31,7 @@ const App = () => {
   return (
     <div className="page">
       {/* Header */}
+      <Header />
 
       {/* Destaque */}
       {featuredData && <FeaturedMovie item={featuredData} />}
