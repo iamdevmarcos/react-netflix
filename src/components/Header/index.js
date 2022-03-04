@@ -1,23 +1,24 @@
 import React from "react";
-import "./style.css";
+
+import { Container, Logo, User, Image } from "./styles";
 
 const Header = ({ black }) => {
   return (
-    <header className={black ? "black" : ""}>
-      <div className="header--logo">
+    <Container bg={black ? "#141414" : "transparent"}>
+      <Logo>
         <a href="/">
-          <img
+          <Image
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/200px-Netflix_2015_logo.svg.png"
             alt="Netflix"
           />
         </a>
-      </div>
-      <div className="header--user">
+      </Logo>
+      <User>
         <a href="/">
-          <img src="/favicon.png" alt="Usuário" />
+          <Image src="/favicon.png" alt="Usuário" />
         </a>
-      </div>
-    </header>
+      </User>
+    </Container>
   );
 };
 

@@ -1,4 +1,6 @@
-header {
+import styled from "styled-components";
+
+export const Container = styled.header`
   position: fixed;
   z-index: 99;
   top: 0;
@@ -11,26 +13,19 @@ header {
   padding: 0 30px;
   background: transparent;
   transition: all ease 0.5s;
-}
+  background: ${(props) => props.bg};
+`;
 
-.black {
-  background: #141414;
-}
-
-.header--logo {
+export const Logo = styled.div`
   height: 25px;
-}
+`;
 
-.header--logo img {
-  height: 100%;
-}
-
-.header--user {
+export const User = styled.div`
   height: 35px;
   background: #141414;
   border-radius: 5px;
-}
+`;
 
-.header--user img {
+export const Image = styled.img`
   height: 100%;
-}
+`;
