@@ -15,6 +15,7 @@ import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 
 const MovieRow = ({ title, items }) => {
+  const [movieId, setMovieId] = useState(null);
   const [scrollX, setScrollX] = useState(0);
 
   const handleLeftArrow = () => {
@@ -36,6 +37,8 @@ const MovieRow = ({ title, items }) => {
     setScrollX(x);
   };
 
+  const handleMovieModal = () => {};
+
   return (
     <Container>
       <Title>{title}</Title>
@@ -54,12 +57,19 @@ const MovieRow = ({ title, items }) => {
         >
           {items.results.length > 0 &&
             items.results.map((item, index) => (
-              <Item key={index}>
-                <Image
-                  src={`https://image.tmdb.org/t/p/w300${item.poster_path}`}
-                  alt={item.original_title}
-                />
-              </Item>
+              <>
+                <Item key={index} onClick={handleMovieModal}>
+                  <Image
+                    src={`https://image.tmdb.org/t/p/w300${item.poster_path}`}
+                    alt={item.original_title}
+                  />
+                </Item>
+
+                {/* {movieId === item.id}
+                <div>
+                  <h1>{}</h1>
+                </div> */}
+              </>
             ))}
         </List>
       </ListArea>
