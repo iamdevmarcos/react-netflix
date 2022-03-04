@@ -14,10 +14,6 @@ import {
 import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 
-import Api from "../../services/api";
-
-import MoviePlayer from "../MoviePlayer";
-
 const MovieRow = ({ title, items }) => {
   const [scrollX, setScrollX] = useState(0);
 
@@ -40,16 +36,9 @@ const MovieRow = ({ title, items }) => {
     setScrollX(x);
   };
 
-  const handleMovieModal = async (movieId) => {
-    const data = await Api.getMovieTrailer(movieId);
-    console.log(data);
-  };
-
   return (
     <Container>
       <Title>{title}</Title>
-
-      {/* <MoviePlayer /> */}
 
       <LeftArrow onClick={handleLeftArrow} id="arrow">
         <NavigateBeforeIcon style={{ fontSize: 50 }} />
