@@ -33,7 +33,9 @@ const FeaturedMovie = ({ item }) => {
 
   const handleMovieTrailer = async (movieId) => {
     const data = await Api.getMovieTrailer(movieId);
-    console.log(data);
+
+    const videoKey = data.results[0].key;
+    window.open(`https://www.youtube.com/watch?v=${videoKey}`, "_blank");
   };
 
   return (
@@ -62,7 +64,7 @@ const FeaturedMovie = ({ item }) => {
               ► Assistir
             </WatchButton>
             <TrailerButton onClick={() => handleMovieTrailer(item.id)}>
-              + Minha Lista
+              ► Ver Trailer
             </TrailerButton>
           </Buttons>
 

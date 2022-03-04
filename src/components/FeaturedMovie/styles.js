@@ -118,7 +118,7 @@ export const TrailerButton = styled.a`
   color: #fff;
 
   &:hover {
-    opacity: 0.7;
+    opacity: 0.6;
   }
 
   @media (max-width: 760px) {
