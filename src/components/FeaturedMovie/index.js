@@ -51,7 +51,9 @@ const FeaturedMovie = ({ item }) => {
           <Description>{description}</Description>
 
           <Buttons>
-            <WatchButton href={`/watch/${item.id}`}>► Assistir</WatchButton>
+            <WatchButton href={item.homepage} target="_blank">
+              ► Assistir
+            </WatchButton>
             <MyListButton href={`/list/add/${item.id}`}>
               + Minha Lista
             </MyListButton>
