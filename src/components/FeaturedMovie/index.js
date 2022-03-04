@@ -1,5 +1,20 @@
 import React from "react";
-import "./style.css";
+
+import {
+  Container,
+  FeaturedHorizontal,
+  FeaturedVertical,
+  Title,
+  Info,
+  Points,
+  Year,
+  Seasons,
+  Description,
+  Buttons,
+  WatchButton,
+  MyListButton,
+  Genres,
+} from "./styles";
 
 const FeaturedMovie = ({ item }) => {
   const firstDate = new Date(item.first_air_date);
@@ -15,42 +30,39 @@ const FeaturedMovie = ({ item }) => {
   }
 
   return (
-    <section
-      className="featured"
+    <Container
       style={{
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundImage: `url(https://image.tmdb.org/t/p/original${item.backdrop_path})`,
       }}
     >
-      <div className="featured--vertical">
-        <div className="featured--horizontal">
-          <div className="featured--name">{item.original_name}</div>
-          <div className="featured--info">
-            <div className="featured--points">{item.vote_average} pontos</div>
-            <div className="featured--year">{firstDate.getFullYear()}</div>
-            <div className="featured--seasons">
+      <FeaturedVertical>
+        <FeaturedHorizontal>
+          <Title>{item.original_name}</Title>
+          <Info>
+            <Points>{item.vote_average} pontos</Points>
+            <Year>{firstDate.getFullYear()}</Year>
+            <Seasons>
               {item.number_of_seasons} temporada
               {item.number_of_seasons !== 1 ? "s" : ""}
-            </div>
-          </div>
-          <div className="featured--description">{description}</div>
+            </Seasons>
+          </Info>
+          <Description>{description}</Description>
 
-          <div className="featured--buttons">
-            <a href={`/watch/${item.id}`} className="featured--watchButton">
-              ► Assistir
-            </a>
-            <a href={`/list/add/${item.id}`} className="featured--mylistbutton">
+          <Buttons>
+            <WatchButton href={`/watch/${item.id}`}>► Assistir</WatchButton>
+            <MyListButton href={`/list/add/${item.id}`}>
               + Minha Lista
-            </a>
-          </div>
+            </MyListButton>
+          </Buttons>
 
-          <div className="featured--genres">
+          <Genres>
             <strong>Gêneros: </strong> {genres.join(", ")}
-          </div>
-        </div>
-      </div>
-    </section>
+          </Genres>
+        </FeaturedHorizontal>
+      </FeaturedVertical>
+    </Container>
   );
 };
 
