@@ -93,6 +93,11 @@ const api = {
 
     return info;
   },
+  getMovieTrailer: async (movieId) => {
+    const res = await basicFetch(`/tv/${movieId}/videos?&api_key=${API_KEY}`);
+
+    return res;
+  },
 };
 
 export default api;

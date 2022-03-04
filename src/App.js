@@ -18,7 +18,6 @@ const App = () => {
   useEffect(() => {
     const loadAll = async () => {
       const list = await Api.getHomeList();
-      console.log(list);
       setMovieList(list);
 
       const originals = list.filter((i) => i.slug === "originals");
@@ -28,7 +27,6 @@ const App = () => {
       const chosen = originals[0].items.results[randomChosen];
       const chosenInfo = await Api.getMovieInfo(chosen.id, "tv");
       setFeaturedData(chosenInfo);
-      console.log(chosenInfo);
     };
 
     loadAll();

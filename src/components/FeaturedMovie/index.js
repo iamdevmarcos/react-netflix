@@ -12,9 +12,11 @@ import {
   Description,
   Buttons,
   WatchButton,
-  MyListButton,
+  TrailerButton,
   Genres,
 } from "./styles";
+
+import Api from "../../services/api";
 
 const FeaturedMovie = ({ item }) => {
   const firstDate = new Date(item.first_air_date);
@@ -28,6 +30,11 @@ const FeaturedMovie = ({ item }) => {
   if (description.length > 200) {
     description = description.substring(0, 200) + "...";
   }
+
+  const handleMovieTrailer = async (movieId) => {
+    const data = await Api.getMovieTrailer(movieId);
+    console.log(data);
+  };
 
   return (
     <Container
@@ -54,9 +61,9 @@ const FeaturedMovie = ({ item }) => {
             <WatchButton href={item.homepage} target="_blank">
               ► Assistir
             </WatchButton>
-            <MyListButton href={`/list/add/${item.id}`}>
+            <TrailerButton onClick={() => handleMovieTrailer(item.id)}>
               + Minha Lista
-            </MyListButton>
+            </TrailerButton>
           </Buttons>
 
           <Genres>

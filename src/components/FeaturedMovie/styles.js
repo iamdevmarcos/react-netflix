@@ -102,7 +102,7 @@ export const WatchButton = styled.a`
   }
 `;
 
-export const MyListButton = styled.a`
+export const TrailerButton = styled.a`
   display: inline-block;
   font-size: 20px;
   font-weight: bold;
@@ -112,6 +112,7 @@ export const MyListButton = styled.a`
   margin-right: 10px;
   opacity: 1;
   transition: all ease 0.2s;
+  cursor: pointer;
 
   background: #333;
   color: #fff;
